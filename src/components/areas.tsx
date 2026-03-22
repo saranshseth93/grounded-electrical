@@ -38,9 +38,9 @@ export function Areas() {
               {suburbs.map((suburb, i) => (
                 <span
                   key={suburb}
-                  className="group inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-[15px] font-medium text-dark border border-gray-200 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-primary/30 hover:bg-primary/5 hover:text-primary transition-all duration-200 cursor-default"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-[15px] font-medium text-dark border border-gray-200 shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-primary/30 hover:bg-primary/5 hover:text-primary transition-all duration-200 cursor-default"
                 >
-                  <MapPin className="h-3.5 w-3.5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <MapPin className="h-3.5 w-3.5 text-primary" />
                   {suburb}
                 </span>
               ))}
