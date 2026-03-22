@@ -3,9 +3,11 @@
 @theme inline {
   --color-primary: #2563EB;
   --color-primary-hover: #1d4ed8;
+  --color-primary-light: #3b82f6;
   --color-accent: #F59E0B;
   --color-accent-hover: #d97706;
   --color-dark: #111827;
+  --color-dark-lighter: #1f2937;
   --color-light: #F9FAFB;
   --color-muted: #6B7280;
   --color-border: #E5E7EB;
@@ -15,32 +17,47 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
   color: #111827;
   background: #F9FAFB;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hero grid pattern overlay */
+/* Hero grid pattern */
 .hero-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 
-/* Scroll reveal animation */
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Glow effect behind hero icon */
+.hero-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(37, 99, 235, 0.15) 0%,
+    rgba(245, 158, 11, 0.08) 40%,
+    transparent 70%
+  );
+}
+
+/* Subtle noise texture for dark sections */
+.noise-overlay {
+  position: relative;
+}
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Bounce animation for scroll indicator */
@@ -51,4 +68,39 @@ body {
 
 .animate-bounce-gentle {
   animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+/* Pulse glow for CTA buttons */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  50% { box-shadow: 0 0 20px 4px rgba(37, 99, 235, 0.15); }
+}
+
+.btn-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Gradient text helper */
+.text-gradient {
+  background: linear-gradient(135deg, #2563EB 0%, #60a5fa 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 40px -12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(37, 99, 235, 0.06);
+}
+
+/* Section divider */
+.section-divider {
+  background: linear-gradient(90deg, transparent, #E5E7EB, transparent);
+  height: 1px;
 }

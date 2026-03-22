@@ -8,22 +8,29 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-dark border-t border-white/5">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid sm:grid-cols-3 gap-8 items-start">
+    <footer className="bg-dark border-t border-white/[0.06]">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 py-14">
+        <div className="grid sm:grid-cols-3 gap-10 items-start">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 text-white font-extrabold text-lg mb-2">
-              <Zap className="h-5 w-5 text-primary fill-primary" />
-              GROUNDED
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary">
+                <Zap className="h-4 w-4 text-white fill-white" />
+              </div>
+              <span className="text-white font-extrabold text-lg tracking-tight">
+                GROUNDED
+              </span>
             </div>
-            <p className="text-gray-500 text-sm">
-              Melbourne&apos;s Northern Suburbs Sparkie
+            <p className="text-gray-500 text-sm leading-relaxed">
+              Melbourne&apos;s Northern Suburbs Sparkie.
+              <br />
+              Trusted by 500+ homeowners.
             </p>
           </div>
 
           {/* Quick links */}
-          <div className="flex gap-6 sm:justify-center">
+          <div className="flex flex-col sm:items-center gap-3">
+            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Quick Links</div>
             {quickLinks.map((link) => (
               <a
                 key={link.href}
@@ -37,19 +44,23 @@ export function Footer() {
 
           {/* Licence */}
           <div className="sm:text-right">
+            <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Legal</div>
             <p className="text-sm text-gray-400">
               Licensed Electrical Contractor
             </p>
+            <p className="text-xs text-gray-500 mt-1">
+              VIC REC XXXXX
+            </p>
             <p className="text-xs text-gray-500">
-              VIC REC XXXXX · ABN: XX XXX XXX XXX
+              ABN: XX XXX XXX XXX
             </p>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-500">
+      <div className="border-t border-white/[0.06]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-600">
           <span>&copy; 2026 Grounded Electrical. All rights reserved.</span>
           <span>
             Website by{" "}
@@ -57,7 +68,7 @@ export function Footer() {
               href="https://pixelpundit.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-saffron hover:underline font-medium"
+              className="text-saffron hover:text-accent font-semibold transition-colors"
             >
               Pixel Pundit
             </a>

@@ -12,7 +12,17 @@
       "Bash(pnpm build:*)",
       "Bash(gh auth:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m \"Initial build: Grounded Electrical one-page site:*)"
+      "Bash(git commit -m \"Initial build: Grounded Electrical one-page site:*)",
+      "Bash(gh repo:*)",
+      "Bash(gh api:*)",
+      "Bash(gh run:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:saranshseth93.github.io)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "mcp__plugin_playwright_playwright__browser_evaluate"
     ]
   }
 }
