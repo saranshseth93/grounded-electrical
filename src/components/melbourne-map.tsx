@@ -29,10 +29,11 @@ export function MelbourneMap() {
     Circle: typeof import("react-leaflet").Circle;
   } | null>(null);
 
-  const [icon, setIcon] = useState<import("leaflet").Icon | null>(null);
+  const [icons, setIcons] = useState<{
+    pin: import("leaflet").DivIcon;
+  } | null>(null);
 
   useEffect(() => {
-    // Dynamic import to avoid SSR issues
     Promise.all([
       import("react-leaflet"),
       import("leaflet"),
@@ -46,18 +47,18 @@ export function MelbourneMap() {
         Circle: rl.Circle,
       });
 
-      setIcon(
-        new L.Icon({
-          iconUrl: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="32" height="42" viewBox="0 0 32 42"><path d="M16 0C7.163 0 0 7.163 0 16c0 12 16 26 16 26s16-14 16-26C32 7.163 24.837 0 16 0z" fill="#2563EB"/><circle cx="16" cy="15" r="6.5" fill="white"/><path d="M16.5 10L14 16h3l-1 5 4.5-7h-3l2-4z" fill="#F59E0B"/></svg>`),
-          iconSize: [32, 42],
-          iconAnchor: [16, 42],
-          tooltipAnchor: [0, -42],
-        })
-      );
+      setIcons({
+        pin: new L.DivIcon({
+          className: "",
+          iconSize: [12, 12],
+          iconAnchor: [6, 6],
+          html: `<div style="width:12px;height:12px;background:#2563EB;border:2.5px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>`,
+        }),
+      });
     });
   }, []);
 
-  if (!MapComponents || !icon) {
+  if (!MapComponents || !icons) {
     return (
       <div className="w-full aspect-[4/3] sm:aspect-[16/9] rounded-2xl bg-gray-100 border border-border flex items-center justify-center">
         <div className="text-muted text-sm">Loading map...</div>
@@ -73,13 +74,15 @@ export function MelbourneMap() {
         center={CENTER}
         zoom={ZOOM}
         scrollWheelZoom={false}
+        dragging={true}
         style={{ width: "100%", height: "100%" }}
         attributionControl={true}
         zoomControl={true}
       >
+        {/* Clean minimal tile layer */}
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         />
 
         {/* Service area circle */}
@@ -89,29 +92,55 @@ export function MelbourneMap() {
           pathOptions={{
             color: "#2563EB",
             fillColor: "#2563EB",
-            fillOpacity: 0.06,
+            fillOpacity: 0.05,
             weight: 1.5,
             dashArray: "6 4",
           }}
         />
 
-        {/* Suburb markers */}
+        {/* Suburb markers with permanent labels */}
         {suburbs.map((suburb) => (
           <Marker
             key={suburb.name}
             position={[suburb.lat, suburb.lng]}
-            icon={icon}
+            icon={icons.pin}
           >
             <Tooltip
-              direction="top"
-              permanent={false}
-              className="!bg-dark !text-white !border-0 !rounded-lg !px-3 !py-1.5 !text-sm !font-semibold !shadow-lg"
+              direction="right"
+              offset={[10, 0]}
+              permanent={true}
+              className="leaflet-suburb-label"
             >
               {suburb.name}
             </Tooltip>
           </Marker>
         ))}
       </MapContainer>
+
+      {/* Custom tooltip styles injected */}
+      <style>{`
+        .leaflet-suburb-label {
+          background: none !important;
+          border: none !important;
+          box-shadow: none !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          font-family: var(--font-dm-sans), system-ui, sans-serif;
+          font-size: 12px !important;
+          font-weight: 600 !important;
+          color: #111827 !important;
+          text-shadow:
+            -1px -1px 0 #F9FAFB,
+            1px -1px 0 #F9FAFB,
+            -1px 1px 0 #F9FAFB,
+            1px 1px 0 #F9FAFB,
+            0 0 4px rgba(249,250,251,0.8) !important;
+          white-space: nowrap !important;
+        }
+        .leaflet-suburb-label::before {
+          display: none !important;
+        }
+      `}</style>
     </div>
   );
 }
