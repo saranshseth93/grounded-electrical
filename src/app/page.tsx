@@ -1,11 +1,13 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
+import { StatsStrip } from "@/components/stats-strip";
 import { Services } from "@/components/services";
 import { WhyUs } from "@/components/why-us";
 import { Areas } from "@/components/areas";
 import { Reviews } from "@/components/reviews";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { BackToTop } from "@/components/back-to-top";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -67,6 +69,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <StatsStrip />
         <Services />
         <WhyUs />
         <Areas />
@@ -74,6 +77,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }
