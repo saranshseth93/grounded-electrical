@@ -18,7 +18,7 @@ const suburbs = [
 ];
 
 const CENTER: [number, number] = [-37.65, 145.03];
-const ZOOM = 11;
+const ZOOM = 10;
 
 export function MelbourneMap() {
   const [MapComponents, setMapComponents] = useState<{
