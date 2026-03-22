@@ -64,7 +64,7 @@ export function WhyUs() {
                     <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
                       {prop.title}
                     </h3>
-                    <p className="text-gray-400 text-[15px] leading-relaxed">
+                    <p className="text-gray-300 text-[15px] leading-relaxed">
                       {prop.description}
                     </p>
                   </div>

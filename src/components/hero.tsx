@@ -25,7 +25,7 @@ export function Hero() {
               No Rubbish.
             </h1>
 
-            <p className="text-lg sm:text-xl text-gray-400 max-w-xl mb-10 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-xl mb-10 leading-relaxed">
               Licensed electrical work for homes and businesses across Wollert,
               Epping, South Morang, and Craigieburn. Same-day service available.
             </p>
@@ -52,7 +52,7 @@ export function Hero() {
                 { icon: Star, label: "5.0 Google Reviews", fill: true },
                 { icon: Clock, label: "Same-Day Service" },
               ].map(({ icon: Icon, label, fill }) => (
-                <span key={label} className="flex items-center gap-2 text-sm text-gray-500">
+                <span key={label} className="flex items-center gap-2 text-sm text-gray-300">
                   <Icon className={`h-4 w-4 text-accent ${fill ? "fill-accent" : ""}`} />
                   {label}
                 </span>

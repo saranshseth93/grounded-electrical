@@ -49,7 +49,7 @@ export function Contact() {
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-white mb-5 tracking-tight">
               Need a Sparkie?
             </h2>
-            <p className="text-lg text-gray-400 max-w-xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-300 max-w-xl mx-auto leading-relaxed">
               Get a free quote in under 2 minutes. No obligation, no call-out
               fee, no rubbish.
             </p>
@@ -68,7 +68,7 @@ export function Contact() {
                   <Phone className="h-5 w-5 text-accent" />
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500 mb-0.5">Call us</div>
+                  <div className="text-xs text-gray-400 mb-0.5">Call us</div>
                   <div className="text-xl font-bold text-accent group-hover:text-accent-hover transition-colors">
                     0400 123 456
                   </div>
@@ -83,7 +83,7 @@ export function Contact() {
                   <Mail className="h-5 w-5 text-primary-light" />
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500 mb-0.5">Email</div>
+                  <div className="text-xs text-gray-400 mb-0.5">Email</div>
                   <div className="text-base font-medium text-gray-300 group-hover:text-white transition-colors">
                     matt@groundedelectrical.com.au
                   </div>
@@ -95,7 +95,7 @@ export function Contact() {
                   <Clock className="h-5 w-5 text-emerald-400" />
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500 mb-0.5">Hours</div>
+                  <div className="text-xs text-gray-400 mb-0.5">Hours</div>
                   <div className="text-base font-medium text-gray-300">
                     Mon–Fri 7am–5pm | Sat 8am–12pm
                   </div>
@@ -136,7 +136,7 @@ export function Contact() {
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-1.5">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1.5">
                       Name
                     </label>
                     <input
@@ -144,11 +144,11 @@ export function Contact() {
                       id="name"
                       name="name"
                       required
-                      className="w-full rounded-xl bg-white/[0.06] border border-white/[0.1] px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-[15px] transition-all"
+                      className="w-full rounded-xl bg-white/[0.06] border border-white/[0.1] px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-[15px] transition-all"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-1.5">
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1.5">
                       Phone
                     </label>
                     <input
@@ -156,38 +156,38 @@ export function Contact() {
                       id="phone"
                       name="phone"
                       required
-                      className="w-full rounded-xl bg-white/[0.06] border border-white/[0.1] px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-[15px] transition-all"
+                      className="w-full rounded-xl bg-white/[0.06] border border-white/[0.1] px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-[15px] transition-all"
                     />
                   </div>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-1.5">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1.5">
                       Email
                     </label>
                     <input
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full rounded-xl bg-white/[0.06] border border-white/[0.1] px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-[15px] transition-all"
+                      className="w-full rounded-xl bg-white/[0.06] border border-white/[0.1] px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-[15px] transition-all"
                     />
                   </div>
                   <div>
-                    <label htmlFor="suburb" className="block text-sm font-medium text-gray-400 mb-1.5">
+                    <label htmlFor="suburb" className="block text-sm font-medium text-gray-300 mb-1.5">
                       Suburb
                     </label>
                     <input
                       type="text"
                       id="suburb"
                       name="suburb"
-                      className="w-full rounded-xl bg-white/[0.06] border border-white/[0.1] px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-[15px] transition-all"
+                      className="w-full rounded-xl bg-white/[0.06] border border-white/[0.1] px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-[15px] transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-1.5">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1.5">
                     Job Description
                   </label>
                   <textarea
@@ -196,7 +196,7 @@ export function Contact() {
                     rows={3}
                     placeholder="Tell us about the job..."
                     required
-                    className="w-full rounded-xl bg-white/[0.06] border border-white/[0.1] px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-[15px] resize-none transition-all"
+                    className="w-full rounded-xl bg-white/[0.06] border border-white/[0.1] px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-[15px] resize-none transition-all"
                   />
                 </div>
 
