@@ -1,5 +1,5 @@
 import { Zap, Shield, Star, Clock, ChevronDown } from "lucide-react";
-import { HeroIllustration } from "./hero-illustration";
+/* eslint-disable @next/next/no-img-element */
 
 export function Hero() {
   return (
@@ -9,7 +9,7 @@ export function Hero() {
       <div className="absolute bottom-20 right-1/4 w-72 h-72 bg-accent/8 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-28">
-        <div className="grid lg:grid-cols-[1fr,0.85fr] gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left column */}
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-accent/15 border border-accent/20 px-4 py-2 text-sm font-semibold text-accent mb-8">
@@ -60,8 +60,16 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right column — custom SVG illustration */}
-          <HeroIllustration />
+          {/* Right column — illustration */}
+          <div className="hidden lg:block">
+            <img
+              src="/grounded-electrical/header.svg"
+              alt="Electrician illustration"
+              width={500}
+              height={500}
+              className="w-full max-w-[500px] h-auto mx-auto"
+            />
+          </div>
         </div>
       </div>
 
@@ -72,8 +80,6 @@ export function Hero() {
         </a>
       </div>
 
-      {/* Bottom gradient fade into light section */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-light to-transparent z-10" />
     </section>
   );
 }
